@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7470CF61A6B9ACA00A72EBE /* DrawingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7470CF51A6B9ACA00A72EBE /* DrawingController.m */; };
+		C7470CF91A6B9AE200A72EBE /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7470CF81A6B9AE200A72EBE /* DrawingView.m */; };
 		C7632A751A68FA0600149B05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7632A741A68FA0600149B05 /* main.m */; };
 		C7632A781A68FA0600149B05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7632A771A68FA0600149B05 /* AppDelegate.m */; };
 		C7632A7B1A68FA0600149B05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7632A7A1A68FA0600149B05 /* ViewController.m */; };
@@ -28,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7470CF41A6B9ACA00A72EBE /* DrawingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingController.h; sourceTree = "<group>"; };
+		C7470CF51A6B9ACA00A72EBE /* DrawingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingController.m; sourceTree = "<group>"; };
+		C7470CF71A6B9AE200A72EBE /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
+		C7470CF81A6B9AE200A72EBE /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
 		C7632A6F1A68FA0600149B05 /* TestView3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestView3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7632A731A68FA0600149B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7632A741A68FA0600149B05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +69,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7470CFA1A6B9AEA00A72EBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7470CF71A6B9AE200A72EBE /* DrawingView.h */,
+				C7470CF81A6B9AE200A72EBE /* DrawingView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C7470CFB1A6B9B0600A72EBE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7632A791A68FA0600149B05 /* ViewController.h */,
+				C7632A7A1A68FA0600149B05 /* ViewController.m */,
+				C7A3BECC1A6A901400E88468 /* GestureViewController.h */,
+				C7A3BECD1A6A901400E88468 /* GestureViewController.m */,
+				C7470CF41A6B9ACA00A72EBE /* DrawingController.h */,
+				C7470CF51A6B9ACA00A72EBE /* DrawingController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		C7632A661A68FA0600149B05 = {
 			isa = PBXGroup;
 			children = (
@@ -84,13 +112,11 @@
 		C7632A711A68FA0600149B05 /* TestView3 */ = {
 			isa = PBXGroup;
 			children = (
+				C7470CFB1A6B9B0600A72EBE /* Controllers */,
+				C7470CFA1A6B9AEA00A72EBE /* View */,
 				C7632A761A68FA0600149B05 /* AppDelegate.h */,
 				C7632A771A68FA0600149B05 /* AppDelegate.m */,
-				C7632A791A68FA0600149B05 /* ViewController.h */,
-				C7632A7A1A68FA0600149B05 /* ViewController.m */,
 				C7632A7C1A68FA0600149B05 /* Main.storyboard */,
-				C7A3BECC1A6A901400E88468 /* GestureViewController.h */,
-				C7A3BECD1A6A901400E88468 /* GestureViewController.m */,
 				C7632A7F1A68FA0600149B05 /* Images.xcassets */,
 				C7632A811A68FA0600149B05 /* LaunchScreen.xib */,
 				C7632A721A68FA0600149B05 /* Supporting Files */,
@@ -226,8 +252,10 @@
 			files = (
 				C7A3BECE1A6A901400E88468 /* GestureViewController.m in Sources */,
 				C7632A7B1A68FA0600149B05 /* ViewController.m in Sources */,
+				C7470CF61A6B9ACA00A72EBE /* DrawingController.m in Sources */,
 				C7632A781A68FA0600149B05 /* AppDelegate.m in Sources */,
 				C7632A751A68FA0600149B05 /* main.m in Sources */,
+				C7470CF91A6B9AE200A72EBE /* DrawingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +382,7 @@
 				INFOPLIST_FILE = TestView3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -364,6 +393,7 @@
 				INFOPLIST_FILE = TestView3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
