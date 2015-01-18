@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *label1;
+
+- (IBAction)actionNumberPressed:(UIButton *)sender forEvent:(UIEvent *)event;
+
+//- (IBAction)actionTest3TouchDown:(UIButton*) sender;
 
 @end
 
