@@ -22,6 +22,20 @@
 - (IBAction)actionEnableSwitchStateChange:(UISwitch *)sender;
 @property (weak, nonatomic) IBOutlet UISwitch *enableSwitch;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl* colorTypeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl*
+colorTypeSegmentedControl;
+
+@property (weak, nonatomic) IBOutlet UITextField* firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField* lastNameTextField;
+
+
+#pragma mark - Actions
 - (IBAction)actionColorTypeChange:(UISegmentedControl *)sender;
+
+- (IBAction)actionLogBtnPressed:(UIButton *)sender;
+
+- (IBAction)actionTextEditChange:(UITextField *)sender;
+
+
+
 @end

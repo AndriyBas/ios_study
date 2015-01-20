@@ -76,11 +76,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firsts name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="atb-NV-2Cg">
+                                <rect key="frame" x="16" y="446" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <connections>
+                                    <action selector="actionTextEditChange:" destination="Hbv-KP-mOa" eventType="editingChanged" id="qr3-i2-rgH"/>
+                                    <outlet property="delegate" destination="Hbv-KP-mOa" id="0WP-MP-aH7"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlC-uR-nX5">
+                                <rect key="frame" x="277" y="190" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Log">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionLogBtnPressed:" destination="Hbv-KP-mOa" eventType="touchUpInside" id="lSu-R3-37Z"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bLL-ot-Wdd">
+                                <rect key="frame" x="16" y="491" width="568" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardAppearance="alert" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="actionTextEditChange:" destination="Hbv-KP-mOa" eventType="editingChanged" id="reG-bG-cAv"/>
+                                    <outlet property="delegate" destination="Hbv-KP-mOa" id="sGO-68-GmI"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="1iC-OQ-Crf" secondAttribute="centerX" constant="-0.5" id="0d4-9J-lj0"/>
                             <constraint firstItem="Y26-03-LNk" firstAttribute="trailing" secondItem="BC7-h9-ldg" secondAttribute="trailingMargin" id="1DZ-ey-7qy"/>
+                            <constraint firstItem="a9I-ra-UGW" firstAttribute="centerY" secondItem="HlC-uR-nX5" secondAttribute="centerY" constant="-0.5" id="22R-O0-cub"/>
                             <constraint firstItem="8YB-GN-4fM" firstAttribute="top" secondItem="4sK-eH-RZi" secondAttribute="bottom" constant="12" id="3WO-ts-iOc"/>
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="top" secondItem="4sK-eH-RZi" secondAttribute="bottom" constant="8" id="4N3-VJ-qKO"/>
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="top" secondItem="rnd-Sd-07w" secondAttribute="bottom" constant="101" id="4Px-YM-mEX"/>
@@ -98,11 +128,16 @@
                             <constraint firstItem="oEq-TD-OZZ" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="M4H-JQ-g1g"/>
                             <constraint firstItem="4sK-eH-RZi" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="NPG-Zx-jFT"/>
                             <constraint firstItem="ChZ-FU-hb5" firstAttribute="trailing" secondItem="BC7-h9-ldg" secondAttribute="trailingMargin" id="Oa6-Dr-toG"/>
+                            <constraint firstItem="atb-NV-2Cg" firstAttribute="trailing" secondItem="BC7-h9-ldg" secondAttribute="trailingMargin" id="P4X-zV-wgB"/>
+                            <constraint firstItem="bLL-ot-Wdd" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="PRG-zv-dW6"/>
+                            <constraint firstItem="a9I-ra-UGW" firstAttribute="centerX" secondItem="HlC-uR-nX5" secondAttribute="centerX" id="QcQ-pI-BNk"/>
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="top" secondItem="oEq-TD-OZZ" secondAttribute="bottom" constant="8" id="RqY-hl-YBq"/>
+                            <constraint firstItem="atb-NV-2Cg" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="SIk-1z-EmK"/>
                             <constraint firstItem="GRC-p4-NoT" firstAttribute="trailing" secondItem="BC7-h9-ldg" secondAttribute="trailingMargin" id="T26-J3-Izn"/>
                             <constraint firstItem="Y26-03-LNk" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="Tiv-Hs-cig"/>
                             <constraint firstItem="tWE-vd-kVT" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="VUw-q6-czs"/>
                             <constraint firstItem="ChZ-FU-hb5" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="WdY-i1-SOk"/>
+                            <constraint firstItem="bLL-ot-Wdd" firstAttribute="trailing" secondItem="BC7-h9-ldg" secondAttribute="trailingMargin" id="Xfs-JE-ydv"/>
                             <constraint firstItem="4sK-eH-RZi" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="YGb-G8-hcX"/>
                             <constraint firstItem="4sK-eH-RZi" firstAttribute="leading" secondItem="8YB-GN-4fM" secondAttribute="trailing" constant="100" id="YfW-6x-ozh"/>
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="leading" secondItem="BC7-h9-ldg" secondAttribute="leadingMargin" id="ZwC-e0-5AX"/>
@@ -113,7 +148,9 @@
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="top" secondItem="8YB-GN-4fM" secondAttribute="bottom" constant="8" id="eOf-8n-YtZ"/>
                             <constraint firstItem="8YB-GN-4fM" firstAttribute="leading" secondItem="oEq-TD-OZZ" secondAttribute="trailing" constant="63" id="ftU-ic-SpE"/>
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="trailing" secondItem="BC7-h9-ldg" secondAttribute="trailingMargin" id="iap-5a-Xnm"/>
+                            <constraint firstItem="atb-NV-2Cg" firstAttribute="top" secondItem="1iC-OQ-Crf" secondAttribute="bottom" constant="8" id="ipY-GU-LIh"/>
                             <constraint firstItem="a9I-ra-UGW" firstAttribute="top" secondItem="oEq-TD-OZZ" secondAttribute="bottom" constant="8" id="khI-GU-1QW"/>
+                            <constraint firstItem="bLL-ot-Wdd" firstAttribute="top" secondItem="atb-NV-2Cg" secondAttribute="bottom" constant="15" id="oXW-ne-L9E"/>
                             <constraint firstAttribute="centerX" secondItem="tWE-vd-kVT" secondAttribute="centerX" constant="14.5" id="qI9-ab-pA9"/>
                             <constraint firstItem="8YB-GN-4fM" firstAttribute="top" secondItem="4sK-eH-RZi" secondAttribute="bottom" constant="-2" id="qIo-gE-qdp"/>
                             <constraint firstAttribute="centerY" secondItem="tWE-vd-kVT" secondAttribute="centerY" constant="-11" id="sWv-ZV-GfI"/>
@@ -146,7 +183,9 @@
                         <outlet property="blueSlider" destination="ChZ-FU-hb5" id="vdw-Hq-QPt"/>
                         <outlet property="colorTypeSegmentedControl" destination="1iC-OQ-Crf" id="oAt-ZV-QAq"/>
                         <outlet property="enableSwitch" destination="8YB-GN-4fM" id="GJt-cD-yZb"/>
+                        <outlet property="firstNameTextField" destination="atb-NV-2Cg" id="fEv-Po-cef"/>
                         <outlet property="greenSlider" destination="GRC-p4-NoT" id="TjW-sq-GfK"/>
+                        <outlet property="lastNameTextField" destination="bLL-ot-Wdd" id="N1P-RP-e1C"/>
                         <outlet property="redSlider" destination="tWE-vd-kVT" id="PN8-Bk-kcJ"/>
                         <outlet property="sliderLabel" destination="4sK-eH-RZi" id="OXt-1h-Tpl"/>
                         <outlet property="sliderLabelHSV" destination="Y26-03-LNk" id="qK4-23-fiD"/>

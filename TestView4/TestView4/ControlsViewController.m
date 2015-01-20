@@ -8,7 +8,7 @@
 
 #import "ControlsViewController.h"
 
-@interface ControlsViewController ()
+@interface ControlsViewController() <UITextFieldDelegate>
 
 @property (assign, nonatomic) NSInteger sliderEventCount;
 @property (assign, nonatomic) CGFloat redValue;
@@ -32,8 +32,19 @@ typedef enum {
     
     [self updateValues];
     [self refreshColor];
+    
+//    self.firstNameTextField.delegate = self;
+//    self.lastNameTextField.delegate = self;
+    
+    
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(notificationTextDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -96,6 +107,52 @@ typedef enum {
     
 }
 
+#pragma mark - UITextFieldDelegate
+
+
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {      // return NO to disallow editing.
+//    return [textField isEqual:self.firstNameTextField];
+//}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {           // became first responder
+    // empty
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {         // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {   // return NO to not change text
+
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {               // called when clear button pressed. return NO to ignore (no notifications)
+    
+    return NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {              // called when 'return' key pressed. return NO to ignore.
+
+    if([textField isEqual:self.firstNameTextField]) {
+        [self.lastNameTextField becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+#pragma mark - Notifications
+- (void) notificationTextDidChange:(NSNotification*) notification {
+    
+    NSLog(@"notification : %@", self.firstNameTextField.text);
+}
+
+
 #pragma mark - Actions
 - (IBAction)actionSliderChange:(UISlider *)sender {
     NSLog(@"value = %f", sender.value);
@@ -123,4 +180,22 @@ typedef enum {
     [self updateValues];
     [self refreshColor];
 }
+
+- (void) logNames {
+    NSString* firstName = self.firstNameTextField.text;
+    NSString* lastName = self.lastNameTextField.text;
+    NSLog(@"[%@ %@]", firstName, lastName);
+
+}
+
+- (IBAction)actionLogBtnPressed:(UIButton *)sender {
+    [self logNames];
+    
+}
+
+- (IBAction)actionTextEditChange:(UITextField *)sender {
+    [self logNames];
+    
+}
+
 @end
