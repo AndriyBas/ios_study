@@ -82,7 +82,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
                                 <connections>
                                     <action selector="actionTextEditChange:" destination="Hbv-KP-mOa" eventType="editingChanged" id="qr3-i2-rgH"/>
-                                    <outlet property="delegate" destination="Hbv-KP-mOa" id="0WP-MP-aH7"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlC-uR-nX5">

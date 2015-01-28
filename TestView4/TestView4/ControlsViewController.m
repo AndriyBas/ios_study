@@ -125,9 +125,61 @@ typedef enum {
     
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {   // return NO to not change text
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+//    NSCharacterSet* set = [NSCharacterSet characterSetWithCharactersInString:@" ,()"];
+    NSCharacterSet* validationSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    
+    // accept only digits for input
+    if([string componentsSeparatedByCharactersInSet:validationSet].count > 1) {
+        return NO;
+    }
 
-    return YES;
+    // +XX (XXX) XXX-XXXX
+    NSString* str = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    static const int localMaxLength = 7;
+    static const int areaMaxLength = 3;
+    static const int countryMaxLenght = 2;
+    static const int maxPhoneLength = localMaxLength + areaMaxLength + countryMaxLenght;
+    
+    // XXXXXXXXXXXX
+    NSString* newString = [[str componentsSeparatedByCharactersInSet:validationSet] componentsJoinedByString:@""];
+    
+    // length check
+    if(newString.length > maxPhoneLength) {
+        return NO;
+    }
+    
+    NSMutableString* resultStr = [NSMutableString stringWithString:newString]; // @""
+    
+    if(newString.length == maxPhoneLength) {
+        [resultStr insertString:@"+" atIndex:0];
+    }
+    
+    if(newString.length > localMaxLength ) {
+        NSInteger areaLength = MIN(3, newString.length - localMaxLength);
+        [resultStr insertString:@" (" atIndex:resultStr.length - localMaxLength - areaLength];
+        [resultStr insertString:@") " atIndex:resultStr.length - localMaxLength];
+    }
+    
+    if(newString.length > 4) {
+        [resultStr insertString:@"-" atIndex:resultStr.length - 4];
+    }
+//    
+//    UITextRange* textRange = [textField selectedTextRange];
+//    
+//    UITextPosition* textStartPosition = [textField positionFromPosition:textRange.start offset:offset];
+//    UITextPosition* textEndPosition = [textField positionFromPosition:textRange.end offset:offset];
+//
+//    textField.text = resultStr;
+//    
+//    textField.selectedTextRange = [textField textRangeFromPosition:textStartPosition toPosition:textEndPosition];
+    
+    
+    return NO;
+    
+//    return YES;
 }
 
 - (BOOL)textFieldShouldClear:(UITextField *)textField {               // called when clear button pressed. return NO to ignore (no notifications)
@@ -142,6 +194,7 @@ typedef enum {
     } else {
         [textField resignFirstResponder];
     }
+    
     
     return YES;
 }

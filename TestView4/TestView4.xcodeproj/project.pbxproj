@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71A959C1A6FA73C00B57C8B /* Table.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71A959B1A6FA73C00B57C8B /* Table.storyboard */; };
+		C71A959F1A6FA76B00B57C8B /* MyTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71A959E1A6FA76B00B57C8B /* MyTableController.m */; };
 		C7326B5F1A6CEB6C005D68BB /* ControlsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7326B5E1A6CEB6C005D68BB /* ControlsViewController.m */; };
 		C7326B641A6CED78005D68BB /* Controls.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7326B631A6CED78005D68BB /* Controls.storyboard */; };
 		C7AC1A1D1A6BBCE100E3C288 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AC1A1C1A6BBCE100E3C288 /* main.m */; };
@@ -29,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C71A959B1A6FA73C00B57C8B /* Table.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Table.storyboard; sourceTree = "<group>"; };
+		C71A959D1A6FA76B00B57C8B /* MyTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableController.h; sourceTree = "<group>"; };
+		C71A959E1A6FA76B00B57C8B /* MyTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableController.m; sourceTree = "<group>"; };
 		C7326B5D1A6CEB6C005D68BB /* ControlsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsViewController.h; sourceTree = "<group>"; };
 		C7326B5E1A6CEB6C005D68BB /* ControlsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsViewController.m; sourceTree = "<group>"; };
 		C7326B601A6CEB8A005D68BB /* TestPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestPlayground.playground; sourceTree = "<group>"; };
@@ -66,6 +71,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C71A959A1A6FA70E00B57C8B /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				C71A959B1A6FA73C00B57C8B /* Table.storyboard */,
+				C71A959D1A6FA76B00B57C8B /* MyTableController.h */,
+				C71A959E1A6FA76B00B57C8B /* MyTableController.m */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
 		C7326B651A6CED81005D68BB /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,8 +126,9 @@
 				C7AC1A1F1A6BBCE100E3C288 /* AppDelegate.m */,
 				C7326B651A6CED81005D68BB /* Controls */,
 				C7326B661A6CED99005D68BB /* Calculator */,
-				C7326B601A6CEB8A005D68BB /* TestPlayground.playground */,
+				C71A959A1A6FA70E00B57C8B /* Table */,
 				C7AC1A271A6BBCE100E3C288 /* Images.xcassets */,
+				C7326B601A6CEB8A005D68BB /* TestPlayground.playground */,
 				C7AC1A291A6BBCE100E3C288 /* LaunchScreen.xib */,
 				C7AC1A1A1A6BBCE100E3C288 /* Supporting Files */,
 			);
@@ -227,6 +243,7 @@
 			files = (
 				C7AC1A261A6BBCE100E3C288 /* Main.storyboard in Resources */,
 				C7AC1A2B1A6BBCE100E3C288 /* LaunchScreen.xib in Resources */,
+				C71A959C1A6FA73C00B57C8B /* Table.storyboard in Resources */,
 				C7326B641A6CED78005D68BB /* Controls.storyboard in Resources */,
 				C7AC1A281A6BBCE100E3C288 /* Images.xcassets in Resources */,
 			);
@@ -248,6 +265,7 @@
 			files = (
 				C7AC1A231A6BBCE100E3C288 /* ViewController.m in Sources */,
 				C7AC1A201A6BBCE100E3C288 /* AppDelegate.m in Sources */,
+				C71A959F1A6FA76B00B57C8B /* MyTableController.m in Sources */,
 				C7326B5F1A6CEB6C005D68BB /* ControlsViewController.m in Sources */,
 				C7AC1A1D1A6BBCE100E3C288 /* main.m in Sources */,
 			);
