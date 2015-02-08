@@ -25,9 +25,10 @@
     [self.window makeKeyAndVisible];
     
     TableViewController* controller = [[TableViewController alloc] init];
-    self.window.rootViewController = controller;
     
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:controller];
     
+    self.window.rootViewController = navController;
     
     return YES;
 }
