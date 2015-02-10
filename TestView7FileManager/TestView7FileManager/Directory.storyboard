@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ilN-i9-OGL">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="hsi-u5-hUm">
+            <objects>
+                <tableViewController storyboardIdentifier="DirectoryTableViewController" id="f8t-mn-WPg" customClass="DirectoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9eg-wU-uai">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="folderCell" textLabel="CeY-Xk-buK" imageView="4au-m9-NaP" style="IBUITableViewCellStyleDefault" id="j7p-to-Rza">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j7p-to-Rza" id="wQ2-KG-Rid">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Folder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CeY-Xk-buK">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ic_folder.png" id="4au-m9-NaP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" rowHeight="94" id="2nN-R3-SEO" customClass="FIleCellTableViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2nN-R3-SEO" id="AUz-er-xnF">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="File Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjj-Op-P56">
+                                            <rect key="frame" x="8" y="8" width="526" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eve-Yd-Oe6">
+                                            <rect key="frame" x="8" y="33" width="526" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu8-Od-kbz">
+                                            <rect key="frame" x="8" y="60" width="496" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.49721194272262403" green="0.50247998985093123" blue="0.50765467171717171" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgg-Pk-2xd">
+                                            <rect key="frame" x="512" y="59" width="22" height="22"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="actionInfoCell:" destination="f8t-mn-WPg" eventType="touchUpInside" id="TCr-nR-SIf"/>
+                                            </connections>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ic_file.png" translatesAutoresizingMaskIntoConstraints="NO" id="45e-uj-tjS">
+                                            <rect key="frame" x="542" y="22" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="45e-uj-tjS" secondAttribute="bottom" constant="14" id="2w8-Rn-QAn"/>
+                                        <constraint firstItem="Eve-Yd-Oe6" firstAttribute="top" secondItem="vjj-Op-P56" secondAttribute="bottom" constant="-2" id="Ae7-H6-lZQ"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="leading" secondItem="Dgg-Pk-2xd" secondAttribute="trailing" constant="8" id="BKx-gl-JLY"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="leading" secondItem="iu8-Od-kbz" secondAttribute="trailing" constant="8" id="CTL-Si-Wgj"/>
+                                        <constraint firstAttribute="centerY" secondItem="45e-uj-tjS" secondAttribute="centerY" id="Dx8-MB-RCJ"/>
+                                        <constraint firstItem="Dgg-Pk-2xd" firstAttribute="top" secondItem="AUz-er-xnF" secondAttribute="topMargin" constant="51" id="EJS-BQ-ce4"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="trailing" secondItem="AUz-er-xnF" secondAttribute="trailingMargin" id="Hq6-8C-o6V"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Dgg-Pk-2xd" secondAttribute="bottom" constant="5" id="Q6r-eN-cAF"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="leading" secondItem="Dgg-Pk-2xd" secondAttribute="trailing" constant="8" id="Ui7-ZJ-fKG"/>
+                                        <constraint firstItem="iu8-Od-kbz" firstAttribute="leading" secondItem="AUz-er-xnF" secondAttribute="leadingMargin" id="WJV-JX-hMd"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="leading" secondItem="Eve-Yd-Oe6" secondAttribute="trailing" constant="8" id="o7b-fO-EKH"/>
+                                        <constraint firstItem="Eve-Yd-Oe6" firstAttribute="leading" secondItem="AUz-er-xnF" secondAttribute="leadingMargin" id="oWg-EU-T5s"/>
+                                        <constraint firstItem="Dgg-Pk-2xd" firstAttribute="leading" secondItem="iu8-Od-kbz" secondAttribute="trailing" constant="8" id="odc-8Z-Ldo"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="leading" secondItem="vjj-Op-P56" secondAttribute="trailing" constant="8" id="poq-2c-Dos"/>
+                                        <constraint firstItem="iu8-Od-kbz" firstAttribute="top" secondItem="Eve-Yd-Oe6" secondAttribute="bottom" id="qtC-Yi-uei"/>
+                                        <constraint firstItem="vjj-Op-P56" firstAttribute="leading" secondItem="AUz-er-xnF" secondAttribute="leadingMargin" id="r7n-Pc-25M"/>
+                                        <constraint firstItem="45e-uj-tjS" firstAttribute="top" secondItem="AUz-er-xnF" secondAttribute="topMargin" constant="14" id="wqz-VE-eno"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="odc-8Z-Ldo"/>
+                                            <exclude reference="BKx-gl-JLY"/>
+                                            <exclude reference="CTL-Si-Wgj"/>
+                                            <exclude reference="o7b-fO-EKH"/>
+                                            <exclude reference="poq-2c-Dos"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dataLabel" destination="iu8-Od-kbz" id="quV-eg-NPS"/>
+                                    <outlet property="nameLabel" destination="vjj-Op-P56" id="bmC-Je-be3"/>
+                                    <outlet property="sizeLablel" destination="Eve-Yd-Oe6" id="cdI-Ga-xYf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f8t-mn-WPg" id="NnB-aC-8Hh"/>
+                            <outlet property="delegate" destination="f8t-mn-WPg" id="47G-Ez-kkn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="byE-Wj-Hnx"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZS-FH-hqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" id="LyV-qV-rIj">
+                    <connections>
+                        <segue destination="f8t-mn-WPg" kind="show" identifier="navigateDeep" id="SBy-Lv-6z6"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="557" y="616"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p1f-im-c3r">
+            <objects>
+                <navigationController id="ilN-i9-OGL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y7Q-R0-EGT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="f8t-mn-WPg" kind="relationship" relationship="rootViewController" id="aKc-SB-kia"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cha-wY-tnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-263" y="629"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_file.png" width="128" height="128"/>
+        <image name="ic_folder.png" width="256" height="256"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="aKc-SB-kia"/>
+    </inferredMetricsTieBreakers>
+</document>

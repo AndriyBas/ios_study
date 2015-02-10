@@ -12,4 +12,8 @@
 
 - (instancetype) initWithFolderPath:(NSString*) path;
 
+
+- (IBAction) actionInfoCell:(id)sender;
+
+
 @end

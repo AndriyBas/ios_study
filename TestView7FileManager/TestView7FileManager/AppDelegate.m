@@ -18,17 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    [self.window makeKeyAndVisible];
-    
-    
-    DirectoryTableViewController* controller = [[DirectoryTableViewController alloc] initWithFolderPath:@"/Library/"];
-    
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:controller];
-    
-    self.window.rootViewController = navController;
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    
+//    [self.window makeKeyAndVisible];
+//    
+//    DirectoryTableViewController* controller = [[DirectoryTableViewController alloc] initWithFolderPath:@"/Library/"];
+//    
+//    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    
+//    self.window.rootViewController = navController;
     
     return YES;
 }

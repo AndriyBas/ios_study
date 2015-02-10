@@ -15,6 +15,9 @@
 		C74597991A874EE1005343BD /* ic_file.png in Resources */ = {isa = PBXBuildFile; fileRef = C74597971A874EE1005343BD /* ic_file.png */; };
 		C745979A1A874EE1005343BD /* ic_folder.png in Resources */ = {isa = PBXBuildFile; fileRef = C74597981A874EE1005343BD /* ic_folder.png */; };
 		C74597A01A874FF9005343BD /* DirectoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745979F1A874FF9005343BD /* DirectoryTableViewController.m */; };
+		C7564A8F1A89DE1400DB3916 /* Directory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7564A8E1A89DE1400DB3916 /* Directory.storyboard */; };
+		C7564A921A89E76300DB3916 /* FIleCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7564A911A89E76300DB3916 /* FIleCellTableViewCell.m */; };
+		C7564A961A89F55100DB3916 /* UIView+UITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7564A951A89F55100DB3916 /* UIView+UITableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,11 @@
 		C74597981A874EE1005343BD /* ic_folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_folder.png; sourceTree = "<group>"; };
 		C745979E1A874FF9005343BD /* DirectoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryTableViewController.h; sourceTree = "<group>"; };
 		C745979F1A874FF9005343BD /* DirectoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryTableViewController.m; sourceTree = "<group>"; };
+		C7564A8E1A89DE1400DB3916 /* Directory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Directory.storyboard; sourceTree = "<group>"; };
+		C7564A901A89E76300DB3916 /* FIleCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIleCellTableViewCell.h; sourceTree = "<group>"; };
+		C7564A911A89E76300DB3916 /* FIleCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIleCellTableViewCell.m; sourceTree = "<group>"; };
+		C7564A941A89F55100DB3916 /* UIView+UITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UITableViewCell.h"; sourceTree = "<group>"; };
+		C7564A951A89F55100DB3916 /* UIView+UITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UITableViewCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,10 @@
 				C74597721A874D66005343BD /* AppDelegate.m */,
 				C745979E1A874FF9005343BD /* DirectoryTableViewController.h */,
 				C745979F1A874FF9005343BD /* DirectoryTableViewController.m */,
+				C7564A8E1A89DE1400DB3916 /* Directory.storyboard */,
+				C7564A941A89F55100DB3916 /* UIView+UITableViewCell.h */,
+				C7564A951A89F55100DB3916 /* UIView+UITableViewCell.m */,
+				C7564A931A89E76B00DB3916 /* Cell */,
 				C745977A1A874D66005343BD /* Images.xcassets */,
 				C745977C1A874D66005343BD /* LaunchScreen.xib */,
 				C745976D1A874D66005343BD /* Supporting Files */,
@@ -129,6 +141,15 @@
 			);
 			name = Images;
 			path = TestView7FileManager/Images;
+			sourceTree = "<group>";
+		};
+		C7564A931A89E76B00DB3916 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C7564A901A89E76300DB3916 /* FIleCellTableViewCell.h */,
+				C7564A911A89E76300DB3916 /* FIleCellTableViewCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C745979A1A874EE1005343BD /* ic_folder.png in Resources */,
+				C7564A8F1A89DE1400DB3916 /* Directory.storyboard in Resources */,
 				C745977E1A874D66005343BD /* LaunchScreen.xib in Resources */,
 				C745977B1A874D66005343BD /* Images.xcassets in Resources */,
 				C74597991A874EE1005343BD /* ic_file.png in Resources */,
@@ -233,8 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C74597731A874D66005343BD /* AppDelegate.m in Sources */,
+				C7564A921A89E76300DB3916 /* FIleCellTableViewCell.m in Sources */,
 				C74597701A874D66005343BD /* main.m in Sources */,
 				C74597A01A874FF9005343BD /* DirectoryTableViewController.m in Sources */,
+				C7564A961A89F55100DB3916 /* UIView+UITableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +443,7 @@
 				C745978F1A874D66005343BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C74597901A874D66005343BD /* Build configuration list for PBXNativeTarget "TestView7FileManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +452,7 @@
 				C74597921A874D66005343BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
