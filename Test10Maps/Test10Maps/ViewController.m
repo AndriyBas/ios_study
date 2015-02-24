@@ -10,8 +10,13 @@
 #import "MapAnnotation.h"
 #import <MapKit/MapKit.h>
 
+#import "UIView+MKAnnotationView.h"
+
 
 @interface ViewController () <MKMapViewDelegate>
+
+@property (strong, nonatomic) CLGeocoder* geoCoder;
+@property (strong, nonatomic) MKDirections* directions;
 
 @end
 
@@ -37,7 +42,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Actions 
+#pragma mark - private methods
+
+- (void) showAlertWithTitle:(NSString*) title andMessage:(NSString*) message {
+
+    [[[UIAlertView alloc]
+      initWithTitle:title
+      message:message
+      delegate:nil
+      cancelButtonTitle:@"OK"
+      otherButtonTitles:nil]
+     show];
+
+    
+}
+
+#pragma mark - Actions
 
 - (void)actionMapAdd:(id) sender {
     
@@ -74,6 +94,119 @@
     [self.mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(50, 50, 50, 50) animated:YES];
 }
 
+- (void) dealloc {
+    if([self.geoCoder isGeocoding]) {
+       [self.geoCoder cancelGeocode];
+    }
+    
+    if(self.directions && self.directions.calculating) {
+        [self.directions cancel];
+    }
+}
+
+- (void) actionPinDescription:(UIButton*) sender {
+    
+    NSLog(@"actionPinDescription");
+    
+    MKAnnotationView* annotationView = [sender superAnnotataionView];
+    
+    if(!annotationView) {
+        return;
+    }
+    
+    CLLocationCoordinate2D coordinate = annotationView.annotation.coordinate;
+    
+    CLLocation* location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+
+    if(self.geoCoder) {
+        [self.geoCoder cancelGeocode];
+    } else {
+        self.geoCoder = [[CLGeocoder alloc] init];
+    }
+    
+    [self.geoCoder
+     reverseGeocodeLocation:location
+        completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+            NSString* message = nil;
+        
+            if(error) {
+            message = error.localizedDescription;
+            } else {
+            
+                if([placemarks count] > 0) {
+                
+                    CLPlacemark* placemark = [placemarks firstObject];
+                
+                    message = [placemark.addressDictionary description];
+                
+                } else {
+                    message = @"No placemarks found";
+                }
+            }
+        
+            [self showAlertWithTitle:@"Location" andMessage:message];
+    }];
+    
+}
+
+- (void) actionDirection:(UIButton*) sender {
+    
+    MKAnnotationView* annotationView = [sender superAnnotataionView];
+    
+    if(!annotationView)
+        return;
+    
+    CLLocationCoordinate2D coordicate = annotationView.annotation.coordinate;
+    
+//    CLLocation* location = [[CLLocation alloc] initWithLatitude:coordicate.latitude longitude:coordicate.longitude];
+    
+    MKDirectionsRequest* request = [[MKDirectionsRequest alloc] init];
+    
+    
+    CLLocationCoordinate2D sourceCoordinate = (CLLocationCoordinate2D){coordicate.latitude + 0.15F, coordicate.longitude - 0.10F};
+    MKPlacemark* sourcePlacemark = [[MKPlacemark alloc] initWithCoordinate:sourceCoordinate addressDictionary:nil];
+    MKMapItem* sourceMapItem = [[MKMapItem alloc] initWithPlacemark:sourcePlacemark];
+//    MKMapItem* sourceMapItem = [MKMapItem mapItemForCurrentLocation];
+    
+    MKPlacemark* destinationPlacemark = [[MKPlacemark alloc] initWithCoordinate:coordicate addressDictionary:nil];
+    MKMapItem* destinationMapItem = [[MKMapItem alloc] initWithPlacemark:destinationPlacemark];
+
+    request.source = sourceMapItem;
+    request.destination = destinationMapItem;
+    
+    request.transportType =  MKDirectionsTransportTypeAny;
+    request.requestsAlternateRoutes = YES;
+    
+    if(self.directions && self.directions.calculating) {
+        [self.directions cancel];
+    }
+    
+    self.directions = [[MKDirections alloc] initWithRequest:request];
+    [self.directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        
+        if(error) {
+            [self showAlertWithTitle:@"Error" andMessage:[error localizedDescription]];
+        } else if(0 == [response.routes count]) {
+            [self showAlertWithTitle:@"Oops" andMessage:@"No routes found"];
+        } else {
+            
+            [self.mapView removeOverlays:[self.mapView overlays]];
+            
+            
+            NSMutableArray* polyline = [NSMutableArray array];
+            for(MKRoute* r in response.routes) {
+                [polyline addObject:r.polyline];
+            }
+        
+            [self.mapView addOverlays:polyline level:MKOverlayLevelAboveLabels];
+            
+        }
+        
+    }];
+    
+}
+
 #pragma mark - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -92,6 +225,19 @@
         pin.animatesDrop = YES;
         pin.canShowCallout = YES;
         pin.draggable = YES;
+        
+        
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [button addTarget:self action:@selector(actionPinDescription:) forControlEvents:UIControlEventTouchUpInside];
+        
+        pin.rightCalloutAccessoryView = button;
+        
+        
+        UIButton* directionBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        [directionBtn addTarget:self action:@selector(actionDirection:) forControlEvents:UIControlEventTouchUpInside];
+        
+        pin.leftCalloutAccessoryView = directionBtn;
+        
     } else {
         pin.annotation = annotation;
     }
@@ -110,6 +256,20 @@
         NSLog(@"location = {%.1f, %.1f}\npoint = %@", coordinate.latitude, coordinate.longitude, MKStringFromMapPoint(point));
     }
     
+}
+
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay NS_AVAILABLE(10_9, 7_0) {
+    if([overlay isKindOfClass:[MKPolyline class]]) {
+        
+        MKPolylineRenderer* renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+        renderer.strokeColor = [UIColor magentaColor];
+        renderer.lineWidth = 2.0F;
+        
+        return renderer;
+    }
+
+    return nil;
 }
 
 /*

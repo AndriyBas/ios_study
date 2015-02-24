@@ -16,6 +16,7 @@
 		C77E12CE1A912598002D6DE1 /* Test10MapsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E12CD1A912598002D6DE1 /* Test10MapsTests.m */; };
 		C77E12D81A9125C2002D6DE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C77E12D71A9125C2002D6DE1 /* MapKit.framework */; };
 		C77E12DC1A912F8B002D6DE1 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E12DB1A912F8B002D6DE1 /* MapAnnotation.m */; };
+		C7B7B3121A9B174E0093F7AF /* UIView+MKAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B7B3111A9B174E0093F7AF /* UIView+MKAnnotationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		C77E12D71A9125C2002D6DE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C77E12DA1A912F8B002D6DE1 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		C77E12DB1A912F8B002D6DE1 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		C7B7B3101A9B174E0093F7AF /* UIView+MKAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MKAnnotationView.h"; sourceTree = "<group>"; };
+		C7B7B3111A9B174E0093F7AF /* UIView+MKAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MKAnnotationView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				C77E12BB1A912598002D6DE1 /* Main.storyboard */,
 				C77E12DA1A912F8B002D6DE1 /* MapAnnotation.h */,
 				C77E12DB1A912F8B002D6DE1 /* MapAnnotation.m */,
+				C7B7B3101A9B174E0093F7AF /* UIView+MKAnnotationView.h */,
+				C7B7B3111A9B174E0093F7AF /* UIView+MKAnnotationView.m */,
 				C77E12BE1A912598002D6DE1 /* Images.xcassets */,
 				C77E12C01A912598002D6DE1 /* LaunchScreen.xib */,
 				C77E12B11A912598002D6DE1 /* Supporting Files */,
@@ -238,6 +243,7 @@
 			files = (
 				C77E12BA1A912598002D6DE1 /* ViewController.m in Sources */,
 				C77E12B71A912598002D6DE1 /* AppDelegate.m in Sources */,
+				C7B7B3121A9B174E0093F7AF /* UIView+MKAnnotationView.m in Sources */,
 				C77E12B41A912598002D6DE1 /* main.m in Sources */,
 				C77E12DC1A912F8B002D6DE1 /* MapAnnotation.m in Sources */,
 			);
@@ -432,6 +438,7 @@
 				C77E12D31A912598002D6DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C77E12D41A912598002D6DE1 /* Build configuration list for PBXNativeTarget "Test10MapsTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +447,7 @@
 				C77E12D61A912598002D6DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
