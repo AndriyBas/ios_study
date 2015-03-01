@@ -36,8 +36,8 @@
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     
     self.webView.delegate = self;
-//    [self.webView loadRequest:request];
-    [self.webView loadHTMLString:myHtml baseURL:nil];
+    [self.webView loadRequest:request];
+//    [self.webView loadHTMLString:myHtml baseURL:nil];
     [self updateUI];
 }
 
@@ -113,6 +113,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     
     [self.indicatorView startAnimating];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self updateUI];
     
 }
@@ -120,6 +121,8 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
     [self.indicatorView stopAnimating];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self updateUI];
     
 }
@@ -127,6 +130,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
     [self.indicatorView stopAnimating];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self updateUI];
     
 }
