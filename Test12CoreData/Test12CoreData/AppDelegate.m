@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "Student.h"
 #import "NSString+RandomString.h"
+#import "Student.h"
+#import "Car.h"
+#import "University.h"
 
 @interface AppDelegate ()
 
@@ -38,29 +40,36 @@
     }
     */
     
-    [self addRandomStudent];
+    Student* s1 = [self addRandomStudent];
+    Student* s2 = [self addRandomStudent];
+    
+    University* u = [self addUniversity];
+    
+    s1.university = u;
+    s2.university = u;
+//    [u addStudents:[NSSet setWithObjects:s1, s2, nil]];
+    
+    [self printAllObjects];
     
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entityDescr = [NSEntityDescription entityForName:@"Car" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entityDescr];
     
-    NSEntityDescription* description = [NSEntityDescription entityForName:@"Student" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:description];
-//    [request setResultType:NSDictionaryResultType];
-    
-    NSError* error;
-    NSArray* array = [self.managedObjectContext executeFetchRequest:request error:&error];
-    if(!error) {
-        NSLog(@"fetch result : %@", array);
-        for(Student* oo in array) {
-            NSLog(@"%@ %@ - %1.2f", oo.firstName, oo.lastName, oo.score.floatValue);
-        }
-    } else {
-        NSLog(@"error fetching students : %@", [error localizedDescription]);
+    NSArray* arr = [self.managedObjectContext executeFetchRequest:request error:nil];
+    for(NSManagedObject* s in arr) {
+//        [self.managedObjectContext deleteObject:s];
     }
     
+    [self.managedObjectContext save:nil];
+    
+    [self printAllObjects];
+    
+    [self deleteAllObjects];
+
     return YES;
 }
 
-- (void) addRandomStudent {
+- (Student*) addRandomStudent {
     
     Student* s = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:self.managedObjectContext];
     
@@ -69,11 +78,64 @@
     s.score = [NSNumber numberWithFloat:(float)(200 + arc4random() % 201) /100.0F];
     s.dateOfBirth = [NSDate dateWithTimeIntervalSinceReferenceDate:arc4random() % 10000];
     
-    NSError* error;
-    if(![s.managedObjectContext save:&error]) {
-        NSLog(@"error saving student : %@", [error localizedDescription]);
+    if(arc4random() % 2 == 0) {
+        Car* car = [NSEntityDescription insertNewObjectForEntityForName:@"Car" inManagedObjectContext:self.managedObjectContext];
+        car.model = [NSString randomAlphaNumericString];
+        s.car = car;
     }
     
+    NSError* error;
+    if(![self.managedObjectContext save:&error]) {
+        NSLog(@"error saving student : %@", [error localizedDescription]);
+        return nil;
+    }
+    
+    return s;
+}
+
+- (University*) addUniversity {
+    University* u = [NSEntityDescription insertNewObjectForEntityForName:@"University" inManagedObjectContext:self.managedObjectContext];
+    
+    u.name = [NSString randomAlphaNumericString];
+    
+    [self.managedObjectContext save:nil];
+    
+    return u;
+}
+
+- (NSArray*) fetchAllObjects {
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"Parent" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:description];
+    
+    NSError* error = nil;
+    NSArray* arr = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if(nil != error) {
+        NSLog(@"error fatching all objects, error : %@", [error localizedDescription]);
+    }
+    
+    return arr;
+}
+
+- (void) printAllObjects {
+    NSArray* arr = [self fetchAllObjects];
+
+    NSLog(@"All objects :::");
+    for(NSManagedObject* obj in arr) {
+        NSLog(@"%@", obj);
+    }
+}
+
+- (void) deleteAllObjects {
+    NSArray* arr = [self fetchAllObjects];
+    
+    for(NSManagedObject* obj in arr) {
+        [self.managedObjectContext deleteObject:obj];
+    }
+    
+    [self.managedObjectContext save:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
