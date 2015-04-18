@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DataManager.h"
+#import "UniversitiesViewController.h"
 
 @implementation AppDelegate
 
@@ -19,7 +20,20 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [[DataManager sharedManager] generateUniversity];
+//    DataManager* dataManager = [DataManager sharedManager];
+//    [dataManager deleteAll];
+//    [dataManager generateUniversity:@"NTUU \"KPI\""];
+//    [dataManager generateUniversity:@"NAU"];
+//    [dataManager generateUniversity:@"ONPU"];
+//    [dataManager generateUniversity:@"Tarasa Schevchenka"];
+//    [dataManager generateUniversity:@"LNU \"Ivana Franka\""];
+//    [dataManager generateUniversity:@"Lviv Politechnic Institute"];
+    
+    UniversitiesViewController* uvc = [[UniversitiesViewController alloc] init];
+    
+    UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:uvc];
+    
+    self.window.rootViewController = nc;
     
     return YES;
 }

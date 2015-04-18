@@ -22,6 +22,10 @@
 		C73BF7B81AB2E06C00D01154 /* Test12CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C73BF7B71AB2E06C00D01154 /* Test12CoreDataTests.m */; };
 		C73BF7C71AB2F69A00D01154 /* NSString+RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = C73BF7C61AB2F69A00D01154 /* NSString+RandomString.m */; };
 		C7DBF53A1AE2263C00A8A37F /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DBF5391AE2263C00A8A37F /* DataManager.m */; };
+		C7DBF5751AE2304200A8A37F /* UniversitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DBF5741AE2304200A8A37F /* UniversitiesViewController.m */; };
+		C7DBF5781AE2334700A8A37F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DBF5771AE2334700A8A37F /* BaseViewController.m */; };
+		C7DBF57C1AE23C9C00A8A37F /* CoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DBF57B1AE23C9C00A8A37F /* CoursesViewController.m */; };
+		C7DBF57F1AE2537800A8A37F /* StudentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DBF57E1AE2537800A8A37F /* StudentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,14 @@
 		C73BF7C61AB2F69A00D01154 /* NSString+RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomString.m"; sourceTree = "<group>"; };
 		C7DBF5381AE2263C00A8A37F /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		C7DBF5391AE2263C00A8A37F /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		C7DBF5731AE2304200A8A37F /* UniversitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversitiesViewController.h; sourceTree = "<group>"; };
+		C7DBF5741AE2304200A8A37F /* UniversitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversitiesViewController.m; sourceTree = "<group>"; };
+		C7DBF5761AE2334700A8A37F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		C7DBF5771AE2334700A8A37F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		C7DBF57A1AE23C9C00A8A37F /* CoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesViewController.h; sourceTree = "<group>"; };
+		C7DBF57B1AE23C9C00A8A37F /* CoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesViewController.m; sourceTree = "<group>"; };
+		C7DBF57D1AE2537800A8A37F /* StudentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsViewController.h; sourceTree = "<group>"; };
+		C7DBF57E1AE2537800A8A37F /* StudentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +133,7 @@
 		C73BF7971AB2E06B00D01154 /* Test12CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C7DBF5791AE2361D00A8A37F /* ViewControllers */,
 				C703AEB51AB420D700A0EE9B /* Model */,
 				C73BF7C51AB2F69A00D01154 /* NSString+RandomString.h */,
 				C73BF7C61AB2F69A00D01154 /* NSString+RandomString.m */,
@@ -163,6 +176,21 @@
 				C73BF7B61AB2E06C00D01154 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7DBF5791AE2361D00A8A37F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7DBF5731AE2304200A8A37F /* UniversitiesViewController.h */,
+				C7DBF5741AE2304200A8A37F /* UniversitiesViewController.m */,
+				C7DBF5761AE2334700A8A37F /* BaseViewController.h */,
+				C7DBF5771AE2334700A8A37F /* BaseViewController.m */,
+				C7DBF57A1AE23C9C00A8A37F /* CoursesViewController.h */,
+				C7DBF57B1AE23C9C00A8A37F /* CoursesViewController.m */,
+				C7DBF57D1AE2537800A8A37F /* StudentsViewController.h */,
+				C7DBF57E1AE2537800A8A37F /* StudentsViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,13 +294,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C713F6241AE054B70049AF36 /* ASObject.m in Sources */,
+				C7DBF57C1AE23C9C00A8A37F /* CoursesViewController.m in Sources */,
 				C713F6301AE054B80049AF36 /* ASStudent.m in Sources */,
+				C7DBF57F1AE2537800A8A37F /* StudentsViewController.m in Sources */,
 				C73BF79E1AB2E06C00D01154 /* AppDelegate.m in Sources */,
 				C73BF7C71AB2F69A00D01154 /* NSString+RandomString.m in Sources */,
 				C73BF79B1AB2E06C00D01154 /* main.m in Sources */,
 				C713F62D1AE054B80049AF36 /* ASCourse.m in Sources */,
+				C7DBF5751AE2304200A8A37F /* UniversitiesViewController.m in Sources */,
 				C713F6271AE054B80049AF36 /* ASCar.m in Sources */,
 				C713F62A1AE054B80049AF36 /* ASUniversity.m in Sources */,
+				C7DBF5781AE2334700A8A37F /* BaseViewController.m in Sources */,
 				C73BF7A41AB2E06C00D01154 /* ViewController.m in Sources */,
 				C7DBF53A1AE2263C00A8A37F /* DataManager.m in Sources */,
 				C713F6121AE051860049AF36 /* CoreDataTest.xcdatamodeld in Sources */,

@@ -44,6 +44,13 @@ static NSString* carModelNames[] = {
     @"Dodge", @"Toyota", @"BMW", @"Lada", @"Volga"
 };
 
+static NSString* courseNames[] = {
+    @"Android", @"iOS", @"OOP",
+    @"Javascript", @"PHP", @"HTML",
+    @"Math", @"Philosophy", @"Economy",
+    @"Culture", @"Literature", @"Misic"
+};
+
 @implementation DataManager
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -85,12 +92,12 @@ static NSString* carModelNames[] = {
     return car;
 }
 
-- (ASUniversity*) addUniversity {
+- (ASUniversity*) addUniversity:(NSString*) name {
     
     ASUniversity* university =
     [NSEntityDescription insertNewObjectForEntityForName:@"ASUniversity"
                                   inManagedObjectContext:self.managedObjectContext];
-    university.name = @"ONPU";
+    university.name = name;;
     
     return university;
 }
@@ -116,18 +123,18 @@ static NSString* carModelNames[] = {
                 inManagedObjectContext:self.managedObjectContext];
     
     [request setEntity:description];
-    [request setFetchBatchSize:20];
+//    [request setFetchBatchSize:20];
     
-    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
-    NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
-    
-    [request setSortDescriptors:@[descriptor, desc2]];
-    [request setRelationshipKeyPathsForPrefetching:@[@"courses"]];
-    
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"score > %f AND score <= %f && courses.@count >= %d", 3.0F, 4.5F, 3];
-    
-    [request setPredicate:predicate];
-    
+//    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:YES];
+//    NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+//    
+//    [request setSortDescriptors:@[descriptor, desc2]];
+//    [request setRelationshipKeyPathsForPrefetching:@[@"courses"]];
+//    
+//    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"score > %f AND score <= %f && courses.@count >= %d", 3.0F, 4.5F, 3];
+//    
+//    [request setPredicate:predicate];
+//    
     
     NSError* requestError = nil;
     NSArray* resultArray = [self.managedObjectContext executeFetchRequest:request error:&requestError];
@@ -188,54 +195,58 @@ static NSString* carModelNames[] = {
     [self.managedObjectContext save:nil];
 }
 
+- (void) deleteAll {
+    [self deleteAllObjects];
+}
 
-- (void) generateUniversity {
+- (void) generateUniversity:(NSString*) name {
+     
+    NSError* error = nil;
     
-    /*
-     
-     [self deleteAllObjects];
-     
-     NSError* error = nil;
-     
-     NSArray* courses = @[[self addCourseWithName:@"iOS"],
-     [self addCourseWithName:@"Android"],
-     [self addCourseWithName:@"PHP"],
-     [self addCourseWithName:@"Javascript"],
-     [self addCourseWithName:@"HTML"]];
-     
-     ASUniversity* university = [self addUniversity];
+    NSMutableSet* newCourses = [NSMutableSet set];
+    for(int i = 0; i < 5 + arc4random_uniform(6); i++) {
+        [newCourses addObject:courseNames[arc4random_uniform(12)]];
+    }
+    
+    NSMutableArray* courses = [NSMutableArray array];
+    for(NSString* n in newCourses) {
+        [courses addObject:[self addCourseWithName:n]];
+    }
+         
+    ASUniversity* university = [self addUniversity:name];
      
      [university addCourses:[NSSet setWithArray:courses]];
+    
+     int studentsCount = 200 + arc4random_uniform(500);
+     for (int i = 0; i < studentsCount; i++) {
      
-     for (int i = 0; i < 100; i++) {
+         ASStudent* student = [self addRandomStudent];
      
-     ASStudent* student = [self addRandomStudent];
+         if (arc4random_uniform(1000) < 600) {
+             ASCar* car = [self addRandomCar];
+             student.car = car;
+         }
      
-     if (arc4random_uniform(1000) < 500) {
-     ASCar* car = [self addRandomCar];
-     student.car = car;
-     }
+         student.university = university;
      
-     student.university = university;
+         NSInteger number = arc4random_uniform((int)([courses count] - 1)) + 1;
      
-     NSInteger number = arc4random_uniform(5) + 1;
-     
-     while ([student.courses count] < number) {
-     ASCourse* course = [courses objectAtIndex:arc4random_uniform(5)];
-     if (![student.courses containsObject:course]) {
-     [student addCoursesObject:course];
-     }
-     }
+         while ([student.courses count] < number) {
+             ASCourse* course = [courses objectAtIndex:arc4random_uniform((int)[courses count])];
+             if (![student.courses containsObject:course]) {
+                 [student addCoursesObject:course];
+             }
+         }
      }
      
      if (![self.managedObjectContext save:&error]) {
-     NSLog(@"%@", [error localizedDescription]);
+         NSLog(@"%@", [error localizedDescription]);
      }
      
      //[self deleteAllObjects];
      
      //[self printAllObjects];
-     */
+    
     
     /*
      NSFetchRequest* request = [[NSFetchRequest alloc] init];
@@ -324,7 +335,7 @@ static NSString* carModelNames[] = {
     //        [self printArray:course.studentsWithManyCourses];
     //    }
     //
-    [self testRequest];
+//    [self testRequest];
     
 }
 
