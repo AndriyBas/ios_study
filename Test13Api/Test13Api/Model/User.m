@@ -10,9 +10,13 @@
 
 @implementation User
 
+- (NSString*) description {
+    return [NSString stringWithFormat:@"User : %@ %@(%@), userId : %@", self.firstName, self.lastName, self.domain, self.userID];
+}
 
 - (instancetype) initWithResponse:(id) responseObject {
 
+    self.userID =[responseObject objectForKey:@"uid"];
     self.firstName  = [responseObject objectForKey:@"first_name"];
     self.lastName = [responseObject objectForKey:@"last_name"];
     self.domain = [responseObject objectForKey:@"domain"];

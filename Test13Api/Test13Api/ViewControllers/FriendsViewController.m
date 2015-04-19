@@ -26,8 +26,17 @@ static const NSInteger DEFAULT_PAGE_SIZE = 5;
     [super viewDidLoad];
     self.navigationItem.title = @"My Friends";
     self.friendsArray = [NSMutableArray array];
-    [self loadFriends];
+//    [self loadFriends];
+    
+    [self loginUser];
+    
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) loginUser {
+    [[ServerManager sharedManager] authorizeUser:^(User *user) {
+        NSLog(@"%@", user);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,7 +135,8 @@ static const NSInteger DEFAULT_PAGE_SIZE = 5;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == [self.friendsArray count]) {
-        [self loadFriends];
+        [self loginUser];
+//        [self loadFriends];
     }
 }
 

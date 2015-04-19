@@ -34,6 +34,8 @@
 		C7E3891D1AE38FC900A92873 /* ServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E3891C1AE38FC900A92873 /* ServerManager.m */; };
 		C7E389221AE390C400A92873 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E389211AE390C400A92873 /* FriendsViewController.m */; };
 		C7E389261AE3916F00A92873 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E389251AE3916F00A92873 /* User.m */; };
+		C7E389291AE3AB2400A92873 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E389281AE3AB2400A92873 /* LoginViewController.m */; };
+		C7E3892C1AE3AB7000A92873 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E3892B1AE3AB7000A92873 /* AccessToken.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,10 @@
 		C7E389211AE390C400A92873 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		C7E389241AE3916F00A92873 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		C7E389251AE3916F00A92873 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C7E389271AE3AB2400A92873 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C7E389281AE3AB2400A92873 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C7E3892A1AE3AB7000A92873 /* AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
+		C7E3892B1AE3AB7000A92873 /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,8 @@
 			children = (
 				C7E389201AE390C400A92873 /* FriendsViewController.h */,
 				C7E389211AE390C400A92873 /* FriendsViewController.m */,
+				C7E389271AE3AB2400A92873 /* LoginViewController.h */,
+				C7E389281AE3AB2400A92873 /* LoginViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +273,8 @@
 			children = (
 				C7E389241AE3916F00A92873 /* User.h */,
 				C7E389251AE3916F00A92873 /* User.m */,
+				C7E3892A1AE3AB7000A92873 /* AccessToken.h */,
+				C7E3892B1AE3AB7000A92873 /* AccessToken.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -376,7 +386,9 @@
 				C7E388B11AE370F600A92873 /* Test13Api.xcdatamodeld in Sources */,
 				C7E388FC1AE3751700A92873 /* AFSecurityPolicy.m in Sources */,
 				C7E388AE1AE370F600A92873 /* AppDelegate.m in Sources */,
+				C7E3892C1AE3AB7000A92873 /* AccessToken.m in Sources */,
 				C7E388F91AE3751700A92873 /* AFHTTPRequestOperationManager.m in Sources */,
+				C7E389291AE3AB2400A92873 /* LoginViewController.m in Sources */,
 				C7E388FD1AE3751700A92873 /* AFURLConnectionOperation.m in Sources */,
 				C7E389051AE3751700A92873 /* UIImageView+AFNetworking.m in Sources */,
 				C7E388F81AE3751700A92873 /* AFHTTPRequestOperation.m in Sources */,

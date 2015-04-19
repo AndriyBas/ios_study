@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class User;
+
 @interface ServerManager : NSObject
 
+@property(strong, nonatomic) User* user;
+
 + (ServerManager*) sharedManager;
+
+- (void) authorizeUser:(void(^)(User* user)) completion;
 
 - (void) getFriendsWithOffset:(NSInteger) offset
                         count:(NSInteger) count
