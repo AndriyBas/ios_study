@@ -11,6 +11,7 @@
 #import "User.h"
 #import "LoginViewController.h"
 #import "AccessToken.h"
+#import "VKPost.h"
 
 @interface ServerManager()
 
@@ -130,6 +131,72 @@
                       failure(error, operation.response.statusCode);
                   }
               }];
+}
+
+- (void) getGroupWall:(NSString*) groupID
+           withOffset:(NSInteger) offset
+                count:(NSInteger) count
+            onSuccess: (void(^)(NSArray* posts)) success
+            onFailure: (void(^)(NSError* error, NSInteger statusCode)) failure {
+    
+    if(![groupID hasPrefix:@"-"]) {
+        groupID = [NSString stringWithFormat:@"-%@", groupID];
+    }
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            groupID, @"owner_id",
+                            @"all", @"filter",
+                            @(count), @"count",
+                            @(offset), @"offset",
+                            nil];
+    
+    [self.manager GET:@"wall.get"
+           parameters:params
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  NSLog(@"response: %@", responseObject);
+                  NSMutableArray* posts = [NSMutableArray array];
+                  NSArray* array = [responseObject objectForKey:@"response"];
+                  for(int i = 1; i < (int)array.count; i++) {
+                      [posts addObject:[[VKPost alloc] initWithResponse:[array objectAtIndex:i]]];
+                  }
+                  if(success) {
+                      success(posts);
+                  }
+              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  NSLog(@"error: %@", error);
+                  if(failure) {
+                      failure(error, operation.response.statusCode);
+                  }
+              }];
+}
+
+- (void) postText:(NSString*) text
+      onGroupWall:(NSString* ) groupID
+        onSuccess: (void(^)(id response)) success
+        onFailure: (void(^)(NSError* error, NSInteger statusCode)) failure {
+    
+    if(![groupID hasPrefix:@"-"]) {
+        groupID = [NSString stringWithFormat:@"-%@", groupID];
+    }
+    
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            groupID, @"owner_id",
+                            text, @"message",
+                            self.accessToken.token, @"access_token",
+                            nil];
+    
+    [self.manager POST:@"wall.post" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"postText success response: %@", responseObject);
+        if(success) {
+            success(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"postText failure error: %@", [error localizedDescription]);
+        if(failure) {
+            failure(error, operation.response.statusCode);
+        }
+    }];
 }
 
 @end

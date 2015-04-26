@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Andriy Bas. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "ServerModel.h"
 
-@interface User : NSObject
+@interface User : ServerModel
 
 @property (strong, nonatomic) NSString* userID;
 @property (strong, nonatomic) NSString* firstName;
@@ -16,7 +16,5 @@
 @property (strong, nonatomic) NSURL* imageURL;
 @property (strong, nonatomic) NSString* domain;
 @property (assign, nonatomic) BOOL online;
-
-- (instancetype) initWithResponse:(id) responseObject;
 
 @end

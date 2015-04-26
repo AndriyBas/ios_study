@@ -54,7 +54,7 @@
     NSString* urlSting = @"https://oauth.vk.com/authorize?"
         "client_id=4883725&"
         "scope=139286&"
-        "redirect_uri=hello.there&"
+        "redirect_uri=https://oauth.vk.com/blank.html&"
         "display=popup&"
         "v=5.30&"
         "response_type=token&"
@@ -99,7 +99,7 @@
     
     NSLog(@"%@", request.URL);
     
-    if([@"hello.there" isEqualToString:request.URL.host]) {
+    if([[[request URL] description] rangeOfString:@"#access_token="].location != NSNotFound) {
         AccessToken* accessToken = [[AccessToken alloc] initWithUrl:request.URL];
         if(accessToken && self.completionBlock) {
             self.completionBlock(accessToken);

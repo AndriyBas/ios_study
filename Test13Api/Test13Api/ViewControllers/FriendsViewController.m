@@ -10,7 +10,7 @@
 #import "ServerManager.h"
 #import "UIImageView+AFNetworking.h"
 #import "User.h"
-
+#import "GroupWallViewController.h"
 
 @interface FriendsViewController () <UITableViewDataSource>
 
@@ -30,6 +30,9 @@ static const NSInteger DEFAULT_PAGE_SIZE = 5;
     
     [self loginUser];
     
+    UIBarButtonItem* wallBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Wall" style:UIBarButtonItemStyleDone target:self action:@selector(wallBarButtonClick:)];
+    self.navigationItem.rightBarButtonItem = wallBarButton;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -42,6 +45,16 @@ static const NSInteger DEFAULT_PAGE_SIZE = 5;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (void) wallBarButtonClick:(UIBarButtonItem*) sender {
+
+    GroupWallViewController* groupWallViewController = [[GroupWallViewController alloc] initWithStyle:UITableViewStylePlain];
+//    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:groupWallViewController];
+    
+    [self.navigationController pushViewController:groupWallViewController animated:YES];
 }
 
 #pragma mark - Private Methods
@@ -135,8 +148,8 @@ static const NSInteger DEFAULT_PAGE_SIZE = 5;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == [self.friendsArray count]) {
-        [self loginUser];
-//        [self loadFriends];
+//        [self loginUser];
+        [self loadFriends];
     }
 }
 

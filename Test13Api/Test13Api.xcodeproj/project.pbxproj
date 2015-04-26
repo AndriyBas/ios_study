@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7A09E3E1AEB971200F15EE1 /* VKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A09E3D1AEB971200F15EE1 /* VKPost.m */; };
+		C7A09E411AEB97D900F15EE1 /* ServerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A09E401AEB97D900F15EE1 /* ServerModel.m */; };
+		C7A09E441AEB9DEB00F15EE1 /* GroupWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A09E431AEB9DEB00F15EE1 /* GroupWallViewController.m */; };
+		C7A09E481AEBB24200F15EE1 /* VKPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A09E471AEBB24200F15EE1 /* VKPostCell.m */; };
 		C7E388AB1AE370F600A92873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E388AA1AE370F600A92873 /* main.m */; };
 		C7E388AE1AE370F600A92873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E388AD1AE370F600A92873 /* AppDelegate.m */; };
 		C7E388B11AE370F600A92873 /* Test13Api.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7E388AF1AE370F600A92873 /* Test13Api.xcdatamodeld */; };
@@ -49,6 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7A09E3C1AEB971200F15EE1 /* VKPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPost.h; sourceTree = "<group>"; };
+		C7A09E3D1AEB971200F15EE1 /* VKPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPost.m; sourceTree = "<group>"; };
+		C7A09E3F1AEB97D900F15EE1 /* ServerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerModel.h; sourceTree = "<group>"; };
+		C7A09E401AEB97D900F15EE1 /* ServerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerModel.m; sourceTree = "<group>"; };
+		C7A09E421AEB9DEB00F15EE1 /* GroupWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWallViewController.h; sourceTree = "<group>"; };
+		C7A09E431AEB9DEB00F15EE1 /* GroupWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWallViewController.m; sourceTree = "<group>"; };
+		C7A09E461AEBB24200F15EE1 /* VKPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPostCell.h; sourceTree = "<group>"; };
+		C7A09E471AEBB24200F15EE1 /* VKPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPostCell.m; sourceTree = "<group>"; };
 		C7E388A51AE370F600A92873 /* Test13Api.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test13Api.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E388A91AE370F600A92873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7E388AA1AE370F600A92873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7A09E451AEBB20400F15EE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7A09E461AEBB24200F15EE1 /* VKPostCell.h */,
+				C7A09E471AEBB24200F15EE1 /* VKPostCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C7E3889C1AE370F600A92873 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +169,7 @@
 		C7E388A71AE370F600A92873 /* Test13Api */ = {
 			isa = PBXGroup;
 			children = (
+				C7A09E451AEBB20400F15EE1 /* Views */,
 				C7E388D11AE3751700A92873 /* Libs */,
 				C7E3890D1AE3763F00A92873 /* API Interface */,
 				C7E3891F1AE390B100A92873 /* ViewControllers */,
@@ -264,6 +286,8 @@
 				C7E389211AE390C400A92873 /* FriendsViewController.m */,
 				C7E389271AE3AB2400A92873 /* LoginViewController.h */,
 				C7E389281AE3AB2400A92873 /* LoginViewController.m */,
+				C7A09E421AEB9DEB00F15EE1 /* GroupWallViewController.h */,
+				C7A09E431AEB9DEB00F15EE1 /* GroupWallViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +299,10 @@
 				C7E389251AE3916F00A92873 /* User.m */,
 				C7E3892A1AE3AB7000A92873 /* AccessToken.h */,
 				C7E3892B1AE3AB7000A92873 /* AccessToken.m */,
+				C7A09E3C1AEB971200F15EE1 /* VKPost.h */,
+				C7A09E3D1AEB971200F15EE1 /* VKPost.m */,
+				C7A09E3F1AEB97D900F15EE1 /* ServerModel.h */,
+				C7A09E401AEB97D900F15EE1 /* ServerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,9 +409,11 @@
 			files = (
 				C7E389061AE3751700A92873 /* UIProgressView+AFNetworking.m in Sources */,
 				C7E389041AE3751700A92873 /* UIButton+AFNetworking.m in Sources */,
+				C7A09E411AEB97D900F15EE1 /* ServerModel.m in Sources */,
 				C7E389071AE3751700A92873 /* UIRefreshControl+AFNetworking.m in Sources */,
 				C7E389031AE3751700A92873 /* UIAlertView+AFNetworking.m in Sources */,
 				C7E388B11AE370F600A92873 /* Test13Api.xcdatamodeld in Sources */,
+				C7A09E441AEB9DEB00F15EE1 /* GroupWallViewController.m in Sources */,
 				C7E388FC1AE3751700A92873 /* AFSecurityPolicy.m in Sources */,
 				C7E388AE1AE370F600A92873 /* AppDelegate.m in Sources */,
 				C7E3892C1AE3AB7000A92873 /* AccessToken.m in Sources */,
@@ -399,6 +429,8 @@
 				C7E388FB1AE3751700A92873 /* AFNetworkReachabilityManager.m in Sources */,
 				C7E388FF1AE3751700A92873 /* AFURLResponseSerialization.m in Sources */,
 				C7E389221AE390C400A92873 /* FriendsViewController.m in Sources */,
+				C7A09E481AEBB24200F15EE1 /* VKPostCell.m in Sources */,
+				C7A09E3E1AEB971200F15EE1 /* VKPost.m in Sources */,
 				C7E3891D1AE38FC900A92873 /* ServerManager.m in Sources */,
 				C7E389081AE3751700A92873 /* UIWebView+AFNetworking.m in Sources */,
 				C7E389001AE3751700A92873 /* AFURLSessionManager.m in Sources */,
@@ -481,6 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /Users/andriybas/testProj;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -600,6 +633,7 @@
 				C7E388CD1AE370F600A92873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7E388CE1AE370F600A92873 /* Build configuration list for PBXNativeTarget "Test13ApiTests" */ = {
 			isa = XCConfigurationList;
@@ -608,6 +642,7 @@
 				C7E388D01AE370F600A92873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
